@@ -1,0 +1,22 @@
+{
+    "Database": {
+        "Knex": {
+            "client": "mysql",
+            "connection": {
+                "host": "localhost",    
+                "user": "root",
+                "password": "",
+                "database": "scoring"
+            },
+            "searchPath": "knex, public",
+            "migrations": {
+                "directory": "./Migrations",
+                "tableName": "knex_migrations"
+            },
+            "seeds": {
+                "directory": "./Seeds"
+            },
+            "debug": true
+        }
+    }
+}
