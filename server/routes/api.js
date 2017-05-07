@@ -378,6 +378,7 @@ router.get('/project/:event_id', (req, res, next) => {
 	Request Method: POST
 	Parameter: none
 	Body Requirements:
+		-team_id
 		-event_id
 		-project_name
 		-project_type
@@ -407,6 +408,19 @@ router.post('/project', (req, res, next) => {
 		});
 });
 
+/**
+	Route: localhost:----/api/project/:id
+	Request Method: PUT
+	Parameter: none
+	Body Requirements:
+		-team_id
+		-event_id
+		-project_name
+		-project_type
+		-short_desc
+		-long_desc
+	Description: Create a project entry for an specified event
+**/
 router.put('/project/:id', (req, res, next) => {
 	let id = req.params.id || null,
 		data = {};
@@ -431,5 +445,281 @@ router.put('/project/:id', (req, res, next) => {
 	}
 });
 
+//-----REMARKS
+
+var remarksService = require('../db/service/remark');
+
+/**
+	Route: localhost:----/api/remark/
+	Request Method: GET
+	Parameter: project_id
+	Body Requirements: 
+		-judge_id
+		-project_id
+	Description: Get the remark for the project
+
+	TODO: Make this method to return even the project authors
+**/
+router.get('/remark', (req, res, next) => {
+	let data = {
+		judge_id: req.query.judge_id,
+		project_id: req.query.project_id
+	};
+
+	return remarksService.getRemark(data)
+		.then(result => {res.status(200).json(result)})
+		.catch(err => {
+			console.log(err);
+			res.status(500).json({
+				error: "Internal Server Error"
+			});
+		});
+});
+
+/**
+	Route: localhost:----/api/remark/
+	Request Method: POST
+	Parameter: none
+	Body Requirements:
+		-judge_id
+		-project_id
+		-remark
+	Description: Create a remark for a project from a judge
+**/
+router.post('/remark', (req, res, next) => {
+	let data = {
+		judge_id: req.body.judge_id,
+		project_id: req.body.project_id,
+		remark: req.body.remark
+	};
+
+	return remarksService.addRemark(data)
+		.then(result => {
+			res.status(200).json(result);
+		})
+		.catch(err => {
+			console.log(err);
+			res.status(500).json({
+				error: "Internal Server Error"
+			});
+		});
+});
+
+/**
+	Route: localhost:----/api/remark/:id
+	Request Method: PUT
+	Parameter: none
+	Body Requirements:
+		-judge_id
+		-project_id
+		-remark
+	Description: Update a remark
+**/
+router.put('/remark/:id', (req, res, next) => {
+	let id = req.params.id || null,
+		data = {
+			judge_id: req.body.judge_id,
+			project_id: req.body.project_id,
+			remark: req.body.remark
+		};
+
+	if(id){
+		return remarksService.updateRemark(id, data)
+			.then(result => {
+				res.status(200).json(result);
+			})
+			.catch(err => {
+				res.status(400).json({
+					error: "Bad Request"
+				});
+			});
+	}
+});
+
+//-----PARTICIPANT
+
+var participantsService = require('../db/service/participant');
+
+/**
+	Route: localhost:----/api/participant/
+	Request Method: GET
+	Parameter:
+	Body Requirements:
+		-event_id
+	Description: Get the list of registered participants in the system
+**/
+router.get('/participant', (req, res, next) => {
+	return participantsService.getParticipant()
+		.then(result => {res.status(200).json(result)})
+		.catch(err => {
+			console.log(err);
+			res.status(500).json({
+				error: "Internal Server Error"
+			});
+		});
+});
+
+/**
+	Route: localhost:----/api/participant/
+	Request Method: POST
+	Parameter: none
+	Body Requirements:
+		-team_id
+		-firstName
+		-lastName
+		-email
+		-contactNo
+	Description: Create a participant for a team
+**/
+router.post('/participant', (req, res, next) => {
+	let data = {
+		team_id: req.query.team_id,
+        firstName: req.query.firstName,
+        lastName: req.query.lastName,
+        email: req.query.email,
+        contactNo: req.query.contactNo,
+	};
+
+	return participantsService.addParticipant(data)
+		.then(result => {
+			res.status(200).json(result);
+		})
+		.catch(err => {
+			console.log(err);
+			res.status(500).json({
+				error: "Internal Server Error"
+			});
+		});
+});
+
+/**
+	Route: localhost:----/api/participant/:id
+	Request Method: PUT
+	Parameter: none
+	Body Requirements:
+		-team_id
+		-firstName
+		-lastName
+		-email
+		-contactNo
+	Description: Update a participant details
+**/
+router.put('/participant/:id', (req, res, next) => {
+	let id = req.params.id || null,
+		data = {
+			team_id: req.body.team_id,
+	        participant_firstName: req.body.firstName,
+	        participant_lastName: req.body.lastName,
+	        participant_email: req.body.email,
+	        participant_contactNo: req.body.contactNo,
+		};
+
+	if(id){
+		return participantsService.updateParticipant(id, data)
+			.then(result => {
+				res.status(200).json(result);
+			})
+			.catch(err => {
+				res.status(400).json({
+					error: "Bad Request"
+				});
+			});
+	}
+});
+
+//-----SCORES
+
+var scoresService = require('../db/service/score');
+
+/**
+	Route: localhost:----/api/score/
+	Request Method: GET
+	Parameter:
+	Body Requirements:
+		-judge_id
+		-criteria_id
+		-project_id
+	Description: Retrieve a score
+**/
+router.get('/score', (req, res, next) => {
+	let data = {
+		judge_id: req.query.judge_id,
+		criteria_id: req.query.criteria_id,
+		project_id: req.query.project_id
+	};
+
+	return scoresService.getScore(data)
+		.then(result => {res.status(200).json(result)})
+		.catch(err => {
+			console.log(err);
+			res.status(500).json({
+				error: "Internal Server Error"
+			});
+		});
+});
+
+/**
+	Route: localhost:----/api/score/
+	Request Method: POST
+	Parameter: none
+	Body Requirements:
+		-judge_id
+		-criteria_id
+		-project_id
+		-score
+	Description: Create a score for a project
+**/
+router.post('/score', (req, res, next) => {
+	let data = {
+		judge_id: req.body.judge_id,
+		criteria_id: req.body.criteria_id,
+		project_id: req.body.project_id,
+		score: req.body.score
+	};
+
+	return scoresService.addScore(data)
+		.then(result => {
+			res.status(200).json(result);
+		})
+		.catch(err => {
+			console.log(err);
+			res.status(500).json({
+				error: "Internal Server Error"
+			});
+		});
+});
+
+/**
+	Route: localhost:----/api/score/:id
+	Request Method: PUT
+	Parameter: none
+	Body Requirements:
+		-judge_id
+		-criteria_id
+		-project_id
+		-score
+	Description: Update a score details
+**/
+router.put('/score/:id', (req, res, next) => {
+	let id = req.params.id || null,
+		data = {
+			judge_id: req.body.judge_id,
+			criteria_id: req.body.criteria_id,
+			project_id: req.body.project_id,
+			score: req.body.score
+		};
+
+	if(id){
+		return scoresService.updateScore(id, data)
+			.then(result => {
+				res.status(200).json(result);
+			})
+			.catch(err => {
+				res.status(400).json({
+					error: "Bad Request"
+				});
+			});
+	}
+});
 
 module.exports = router;
