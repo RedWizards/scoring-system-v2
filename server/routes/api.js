@@ -14,7 +14,7 @@ var scoresService = require('../db/service/score');
 
 //home
 router.get('/', (req, res, next) => {
-	res.send('RED Wizard Hackathon Scoring API v1.0');
+	res.render('api');
 });
 
 //-----EVENT
@@ -288,7 +288,7 @@ router.get('/team/:id', (req, res, next) => {
 		.then(result => {
 			var team_details = result;
 
-			
+			da
 		})
 		.catch(err => {
 			console.log(err);
