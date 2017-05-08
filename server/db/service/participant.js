@@ -26,6 +26,10 @@ var getParticipant = () => {
     return db(table_name);
 }
 
+var getParticipant = (team_id) => {
+    return db(table_name).where('team_id', team_id);
+}
+
 module.exports = {
     addParticipant: addParticipant,
     updateParticipant: updateParticipant,

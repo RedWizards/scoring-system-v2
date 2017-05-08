@@ -1,5 +1,16 @@
+'use strict';
+
 var express = require('express');
 var router = express.Router();
+
+var eventService = require('../db/service/event');
+var criteriaService = require('../db/service/criteria');
+var judgeService = require('../db/service/judge');
+var teamService = require('../db/service/team');
+var projectService = require('../db/service/project');
+var remarksService = require('../db/service/remark');
+var participantsService = require('../db/service/participant');
+var scoresService = require('../db/service/score');
 
 //home
 router.get('/', (req, res, next) => {
@@ -7,8 +18,6 @@ router.get('/', (req, res, next) => {
 });
 
 //-----EVENT
-
-var eventService = require('../db/service/event');
 
 /**
 	Route: localhost:----/api/events
@@ -93,8 +102,6 @@ router.put('/events/:event_id', (req, res, next) => {
 });
 
 //-----CRTERIA
-
-var criteriaService = require('../db/service/criteria');
 
 /**
 	Route: localhost:----/api/criteria/:event_id
@@ -182,8 +189,6 @@ router.put('/criteria/:id', (req, res, next) => {
 
 //-----JUDGE
 
-var judgeService = require('../db/service/judge');
-
 /**
 	Route: localhost:----/api/judge/:event_id
 	Request Method: GET
@@ -262,8 +267,6 @@ router.put('/judge/:id', (req, res, next) => {
 
 //-----TEAM
 
-var teamService = require('../db/service/team');
-
 /**
 	Route: localhost:----/api/team/
 	Request Method: GET
@@ -278,11 +281,15 @@ var teamService = require('../db/service/team');
 
 	TODO: Include the members
 **/
-router.get('/team', (req, res, next) => {
-	let id = req.params.event_id
+router.get('/team/:id', (req, res, next) => {
+	let id = req.params.id;
 
 	return teamService.getTeam(id)
-		.then(result => {res.status(200).json(result)})
+		.then(result => {
+			var team_details = result;
+
+			
+		})
 		.catch(err => {
 			console.log(err);
 			res.status(500).json({
@@ -348,8 +355,6 @@ router.put('/team/:id', (req, res, next) => {
 });
 
 //-----PROJECT
-
-var projectService = require('../db/service/project');
 
 /**
 	Route: localhost:----/api/project/:event_id
@@ -447,8 +452,6 @@ router.put('/project/:id', (req, res, next) => {
 
 //-----REMARKS
 
-var remarksService = require('../db/service/remark');
-
 /**
 	Route: localhost:----/api/remark/
 	Request Method: GET
@@ -538,8 +541,6 @@ router.put('/remark/:id', (req, res, next) => {
 
 //-----PARTICIPANT
 
-var participantsService = require('../db/service/participant');
-
 /**
 	Route: localhost:----/api/participant/
 	Request Method: GET
@@ -628,8 +629,6 @@ router.put('/participant/:id', (req, res, next) => {
 });
 
 //-----SCORES
-
-var scoresService = require('../db/service/score');
 
 /**
 	Route: localhost:----/api/score/
