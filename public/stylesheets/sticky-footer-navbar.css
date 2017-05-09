@@ -37,3 +37,10 @@ body > .container {
 code {
   font-size: 80%;
 }
+
+.navbar-brand {
+  transform: translateX(-50%);
+  left: 50%;
+  position: absolute;
+  padding: 0;
+}

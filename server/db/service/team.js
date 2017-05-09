@@ -10,7 +10,7 @@ var addTeam = (data) => {
     return generic.add({
         team_name: data.team_name,
     });
-}
+};
 
 var updateTeam = (id, data) => {
     return db(table_name)
@@ -18,12 +18,13 @@ var updateTeam = (id, data) => {
         .update(data);
 }
 
-var getTeam = () => {
-    return db(table_name);
-}
+var getTeam = (id) => {
+    return db(table_name)
+        .where('id', id);
+};
 
 module.exports = {
     addTeam: addTeam,
     updateTeam: updateTeam,
     getTeam: getTeam
-}
+};

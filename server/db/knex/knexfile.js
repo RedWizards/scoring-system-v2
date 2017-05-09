@@ -7,7 +7,7 @@ let configDir = process.env.NODE_CONFIG_DIR;
 var config = require('config');
 
 var dbConfig = config.get("Database.Knex");
-var config = dbConfig
+var config = dbConfig;
 
 config = dbConfig[process.env.NODE_ENV] = dbConfig;
 

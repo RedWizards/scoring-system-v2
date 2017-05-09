@@ -4,8 +4,13 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var socket = require('socket.io');
 
 var app = express();
+
+//Socket.io
+var io = socket();
+app.io = io;
 
 // view engine setup
 app.engine('ejs', require('ejs-blocks'));
@@ -21,8 +26,9 @@ app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', require('./server/routes/index.js'));
+app.use('/', require('./server/routes/index.js')); //for judges
 app.use('/api', require('./server/routes/api.js'));
+app.use('/admin', require('./server/routes/admin.js'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -54,6 +60,7 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
 
 
 module.exports = app;
