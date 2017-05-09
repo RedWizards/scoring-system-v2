@@ -13,3 +13,9 @@
 	    </div>
 
 	    <%- partial('./partials/foot') %>
+
+		<script src = "javascripts/libraries/socket.io.min.js">
+		</script>
+	    <script>
+	    	socket = io.connect('http://localhost:3000');
+	    </script>

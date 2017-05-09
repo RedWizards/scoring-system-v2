@@ -19,7 +19,8 @@ var updateTeam = (id, data) => {
 }
 
 var getTeam = (id) => {
-    return db(table_name).where('id', id);
+    return db(table_name)
+        .where('id', id);
 };
 
 module.exports = {
