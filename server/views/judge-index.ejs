@@ -1,0 +1,28 @@
+<% layout('./layouts/main') -%>
+<% block('title', 'RED Wizard Scoring System') -%>
+<% stylesheet('stylesheets/sticky-footer-navbar.css') -%>
+
+		<!-- Here you may put some contents to the body tag -->
+		<%- partial('./partials/nav') %>
+
+		<div class="container">
+	    	<div class="page-header">
+	    		<center>
+	    			<img src="/images/redwizard(320x320).png" alt="">
+	        		<h1>
+	        			SCORING SYSTEM
+	        		</h1>
+	        	</center>
+	      	</div>
+	      	<p class="lead">
+	      		
+	      	</p>
+	    </div>
+
+	    <%- partial('./partials/foot') %>
+
+		<script src = "http://localhost:3000/javascripts/libraries/socket.io.min.js">
+		</script>
+	    <script>
+	    	socket = io.connect('http://localhost:3000');
+	    </script>
