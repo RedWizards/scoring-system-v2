@@ -1,10 +1,8 @@
-var io = require('socket.io')(3000);
-var judging;
+var socket = io.connect('http://localhost:3000');
 
-function startJudging(){
-	judging = io
-		.of('/judging')
-		.on('connection', function (socket) {
-			console.log('New Connection: ', socket.id);
-		});
+function init(){
+	//call this line of on ng-init of admin-judging app
+	socket.emit('admin-connection', "This is admin requesting to connect and gain access to server");
 }
+
+init();

@@ -2,45 +2,35 @@
 <% block('title', 'RED Wizard Scoring System') -%>
 <% stylesheet('stylesheets/landing.css') -%>
 
-	<table id="wrapper">
-		<tr>
-			<td>
-			
-				<div id="p1">
-					<!--
-					READY FOR ANGULAR
-					<span id="landing-event-name"><b>{{event_name}}</b></span><br/>
-					-->
-					<span id="landing-event-name"><b>UHAC</b> Baguio</span><br/>
-					<br/><br/><small id="landing-sub-name"><b>SCORING SYSTEM</small>
-				</div>
-				
-				<div id="center-logo">
-				</div>
-				
-				<div id="p2">
-					<small class="sub">POWERED BY</small><br/>
-					<span id="company"><strong>RED Wizards Events Management</strong></span><br/>
-					<small class="sub"><i>Created by </i></small>
-					<span id="dev-grp">Canley Codes</span>
-				</div>
-				
-			</td>
-		</tr>
-	</table>
-		
-		<script src = "http://localhost:3000/javascripts/libraries/socket.io.min.js">
-		</script>
-	    <script>
-	    	socket = io.connect('http://localhost:3000');
+<% block('ng_app', 'judge-index') -%>
+<% block('ng_controller', 'mainController') -%>
+<% block('ng_init', 'init()') -%>
 
-	    	socket.on('connect', function() {
-				socket.emit('judge-connection', 'This is judge client requesting to connect to server');
-			});
+<% script('javascripts/libraries/socket.io.min.js') -%>
+<% script('javascripts/judge-index.js') -%>
 
-			socket.on('disconnect', function(){
-				alert('Server Connection Lost');
-			});
+		<table>
+			<tr>
+				<td>
+					<div id="p1">
+						<!--
+						READY FOR ANGULAR
+						<span id="landing-event-name"><b>{{event_name}}</b></span><br/>
+						-->
+						<span id="landing-event-name"><b>UHAC</b> Baguio</span><br/>
+						<br/><br/><small id="landing-sub-name"><b>SCORING SYSTEM</small>
+					</div>
+					
+					<div id="center-logo">
 
-	    	
-	    </script>
+					</div>
+					
+					<div id="p2">
+						<small class="sub">POWERED BY</small><br/>
+						<span id="company"><strong>RED Wizards Events Management</strong></span><br/>
+						<small class="sub"><i>Created by </i></small>
+						<span id="dev-grp">Canley Codes</span>
+					</div>
+				</td>
+			</tr>
+		</table>

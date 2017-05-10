@@ -8,10 +8,6 @@ var socket = require('socket.io');
 
 var app = express();
 
-//Socket.io
-var io = socket();
-app.io = io;
-
 // view engine setup
 app.engine('ejs', require('ejs-blocks'));
 app.set('views', path.join(__dirname, 'server', 'views'));
@@ -29,6 +25,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', require('./server/routes/index.js')); //for judges
 app.use('/api', require('./server/routes/api.js'));
 app.use('/admin', require('./server/routes/admin.js'));
+
+//Socket.io
+var io = socket();
+app.io = io;
+var socket_connection = require('./server/connection/socket-connection.js')(io);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -60,7 +61,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
-
 
 module.exports = app;

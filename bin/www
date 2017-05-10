@@ -28,6 +28,13 @@ var server = http.createServer(app);
 
 server.listen(port);
 
+
+/**
+ * Socket.io
+ */
+var io = app.io;
+io.attach(server);
+
 /**
  * Event listener for HTTP server "error" event.
  */
@@ -87,9 +94,3 @@ function normalizePort(val) {
 
   return false;
 }
-
-var io = socket(server);
-
-io.sockets.on('connection', (socket) => {
-  console.log('New Connection: ', socket.id);
-})
