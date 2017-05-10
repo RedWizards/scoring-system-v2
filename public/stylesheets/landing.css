@@ -1,0 +1,96 @@
+html, body, #wrapper {
+	height:100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+	font-family: Helvetica;
+	
+	background: -webkit-radial-gradient(center, #C91236, #990D29);
+	background: -moz-radial-gradient(center, #C91236, #990D29);
+	background: -o-radial-gradient(center, #C91236, #990D29);
+	background: -ms-radial-gradient(center, #C91236, #990D29);
+	background: radial-gradient(center, #C91236, #990D29);
+	
+	//background: radial-gradient(center, #dc143c, #580818);
+}
+		
+#wrapper td {
+    vertical-align: middle;
+    text-align: center;
+}
+		
+#center-logo {
+	background: url(../images/rwlogo.png) center;
+	background-color: white;
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10em;
+    height: 10em;
+	margin-top: -5.5em;
+	margin-left: -5.5em;
+	border-radius: 50%;
+	border: 0.5em solid gray;		
+	-webkit-transition: all 1s ease;
+	transition: all 1s ease;
+}
+		
+#center-logo:hover {
+	background: url(../images/rwlogobw.png) center;
+	background-color: black;
+	border-color: white;		
+	-webkit-transform: rotate(720deg);
+	transform: rotate(720deg);
+}
+		
+#img-logo {
+	width: 7em;
+	height: 7em;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -3.5em;
+	margin-left: -3.5em;		
+}
+
+#landing-event-name {
+	font-size: 3em;
+	color: white;
+	word-wrap: break-word;
+}
+
+#landing-sub-name {
+	color: white;
+	word-wrap: break-word;
+}
+
+#company, #dev-grp {
+	color: white;
+	word-wrap: break-word;
+}
+
+.sub {
+	color: lightgray;
+	word-wrap: break-word;
+}
+
+#p1 {
+	width: 20em;
+	height: 20em;
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	margin-top: -10em;
+	margin-left: -10em;
+}
+
+#p2 {
+	width: 20em;
+	height: 5em;
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-top: -8em;
+	margin-left: -10em;
+}
