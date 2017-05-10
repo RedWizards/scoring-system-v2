@@ -82,7 +82,8 @@ html, body, #wrapper {
 	top: 40%;
 	left: 50%;
 	margin-top: -10em;
-	margin-left: -10em;
+	margin-left: -10.5em;
+	text-align: center;
 }
 
 #p2 {
@@ -92,7 +93,8 @@ html, body, #wrapper {
 	top: 100%;
 	left: 50%;
 	margin-top: -8em;
-	margin-left: -10em;
+	margin-left: -10.5em;
+	text-align: center;
 }
 
 /* BOUNCE EFFECT */
