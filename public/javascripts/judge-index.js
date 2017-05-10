@@ -1,5 +1,6 @@
-angular.module('judge-index', ['ngRoute'])
-	.controller('mainController', ($scope, $http) => {
+var app = angular.module('judgeIndex', ['ngRoute']);
+
+app.controller('mainController', ($scope, $http) => {
 		var socket;
 
 		$scope.init = function() {
@@ -18,10 +19,14 @@ angular.module('judge-index', ['ngRoute'])
 
 			});
 		}
-	.config(function($routeProvider){
-		$routeProvider
-			.when('/judging-opened', {
-				templateUrl: 'judging-opened.html'
-			});
-	})
+	});
+
+app.config(function($routeProvider){
+	$routeProvider
+		.when('/', {
+			templateUrl: '/views/judge-landing.html'
+		})
+		.otherwise({
+			templateUrl: '/views/judge-landing.html'
+		});
 });

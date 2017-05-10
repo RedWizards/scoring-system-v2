@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app='<%= blocks.ng_app %>' ng-controller='<%= blocks.ng_controller %>' ng-init='<%= blocks.ng_init %>'>
+<html>
 	<head>
 		<title><%= blocks.title %></title>
 		
@@ -13,9 +13,13 @@
 
 	</head>
 	
-	<body ng-view>
+	<body 	ng-app='<%= blocks.ng_app %>'
+			ng-controller='<%= blocks.ng_controller %>'
+			ng-init='<%= blocks.ng_init %>'>
 
-		<%- body %>
+		<div ng-view>
+			<%- body %>
+		</div>
 
 		<!-- Jquery -->
 		<script src="/javascripts/jquery.min.js"></script>
