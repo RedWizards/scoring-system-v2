@@ -1,0 +1,63 @@
+		body{
+			background-color: #b1bacf;
+			color: #2f3e87;
+		}
+		
+		table {
+			font-family: arial, sans-serif;
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		td, th {
+			border: 1px solid #dddddd;
+			text-align: center;
+			padding: 8px;
+		}
+
+		tr:nth-child(even) {
+			background-color: #dddddd;
+			color: #b1bacf;
+		}
+		
+		#image{
+			left: 1000px;
+		}
+		
+		#title{
+			font-family: Helvetica Neue LT Std;
+			font-size: 35px;
+		}
+		
+		#judgescores{
+			font-family: Helvetica Neue LT Std;
+			font-size: 23px;
+			padding-left: 20px;
+			color: black;
+		}
+		
+		#headers{
+			font-family: Helvetica Neue LT Std;
+			font-size: 25px;
+			padding-left: 20px;
+		}
+
+		#names{
+			font-family: Helvetica Neue LT Std; 
+			font-size: 18px; 
+			padding-left: 35px; 
+			color: black;
+		}
+		
+		#info{
+			font-family: Helvetica Neue LT Std; 
+			font-size: 18px; 
+			padding-left: 35px;
+			color: black;
+		}
+		
+		#nav {
+		background-color: #3f7373;
+		margin: 0 auto;
+		padding: 20px;
+		margin-bottom: 1em;

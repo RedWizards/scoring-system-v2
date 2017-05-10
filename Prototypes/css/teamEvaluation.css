@@ -1,0 +1,35 @@
+		body{
+			background-color: #b1bacf;
+			color: #2f3e87;
+		}
+		
+		table {
+			font-family: arial, sans-serif;
+			border-collapse: collapse;
+			width: 100%;
+		}
+
+		td, th {
+			border: 1px solid #dddddd;
+			text-align: center;
+			padding: 8px;
+		}
+
+		tr:nth-child(even) {
+			background-color: #dddddd;
+			color: #b1bacf;
+		}
+		
+		#image{
+			left: 1000px;
+		}
+		
+		.row1{
+			padding: 20px;
+			font-family: Helvetica Neue LT Std; 
+			font-size: 25px; 
+			padding-left: 20px;
+		}
+		
+
+		

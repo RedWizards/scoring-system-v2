@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Team Evaluations</title>
+  <link rel="stylesheet" href="JS/bootstrap3-3-7.min.js">
+  <link rel="stylesheet" type="text/css" href="css\teamEvaluation.css">
+  <script src="JS\jquery3-2-0.min.js"></script>
+  <script src="JS\bootstrap.min.js"></script>
+</head>
+<body>
+	<div id="image">
+		<ul class="nav nav-tabs nav-justified">
+			<img src="rw.png" height="100px" width="390px">
+		</ul>
+	</div>
+	<div>
+		<ul class="nav nav-tabs nav-justified">
+			<li><a data-toggle="tab" href="#menu1">Hack Details</a></li>
+			<li><a data-toggle="tab" href="#menu2">Teams</a></li>
+			<li><a data-toggle="tab" href="#menu3">Judging</a></li>
+			<li><a data-toggle="tab" href="#menu3">Results</a></li>
+		</ul>
+	</div>
+	<div class="tab-content">
+	  <div id="menu1" class="tab-pane fade">
+		<div>
+			<table>
+				<div class="row">
+					
+				</div>
+			</table>
+		</div>
+	</div>
+	  
+		<div id="menu2" class="tab-pane fade">
+			<table id="team1">
+				<div class="row1">
+					<div class="panel-group" id="accordion">
+					  <div class="panel panel-default">
+						<div class="panel-heading">
+						  <h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapse1">Collapsible Group 1</a>
+						  </h4>
+						</div>
+							<div id="collapse1" class="panel-collapse collapse out">
+								<div class="panel-body">
+									<p>Details:</p>
+										<p>Short Description:</p>
+										<p>Long Description:</p>
+										<p>Application Type:</p></br>
+									<p>Members:</p>
+											<div class="input_fields_wrap">
+												<p><button class="add_field_button">Add Members</button></p>
+											</div>
+											<script>
+											$(document).ready(function() {
+												var max_fields      = 6; //maximum input boxes allowed
+												var wrapper         = $(".input_fields_wrap"); //Fields wrapper
+												var add_button      = $(".add_field_button"); //Add button ID
+												
+												var x = 1; //initlal text box count
+												$(add_button).click(function(e){ //on add input button click
+													e.preventDefault();
+													if(x < max_fields){ //max input box allowed
+														x++; //text box increment
+														$(wrapper).append('<div><p><input type="text" name="mytext[]"/></p><a href="#" class="remove_field">Remove</a></div>'); //add input box
+													}
+												});
+												
+												$(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+													e.preventDefault(); $(this).parent('div').remove(); x--;
+												})
+											});
+											</script>	
+								</div>
+							</div>
+					  </div>	 
+					</div>
+					<div class="panel-group" id="accordion">
+					  <div class="panel panel-default">
+						<div class="panel-heading">
+						  <h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Collapsible Group 2</a>
+						  </h4>
+						</div>
+							<div id="collapse2" class="panel-collapse collapse out">
+								<div class="panel-body">
+									<p>Details:</p>
+										<p>Short Description:</p>
+										<p>Long Description:</p>
+										<p>Application Type:</p></br>
+									<p>Members:</p>
+											<div class="input_fields_wrap2">
+												<p><button class="add_field_button2">Add Members</button></p>
+											</div>
+											<script>
+											$(document).ready(function() {
+												var max_fields      = 6; //maximum input boxes allowed
+												var wrapper         = $(".input_fields_wrap2"); //Fields wrapper
+												var add_button      = $(".add_field_button2"); //Add button ID
+												
+												var x = 1; //initlal text box count
+												$(add_button).click(function(e){ //on add input button click
+													e.preventDefault();
+													if(x < max_fields){ //max input box allowed
+														x++; //text box increment
+														$(wrapper).append('<div><p><input type="text" name="mytext[]"/></p><a href="#" class="remove_field">Remove</a></div>'); //add input box
+													}
+												});
+												
+												$(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+													e.preventDefault(); $(this).parent('div').remove(); x--;
+												})
+											});
+											</script>	
+								</div>
+							</div>
+					  </div>	 
+					</div>
+					<div class="panel-group" id="accordion">
+					  <div class="panel panel-default">
+						<div class="panel-heading">
+						  <h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Collapsible Group 3</a>
+						  </h4>
+						</div>
+							<div id="collapse3" class="panel-collapse collapse out">
+								<div class="panel-body">
+									<p>Details:</p>
+										<p>Short Description:</p>
+										<p>Long Description:</p>
+										<p>Application Type:</p></br>
+									<p>Members:</p>
+											<div class="input_fields_wrap3">
+												<p><button class="add_field_button3">Add Members</button></p>
+											</div>
+											<script>
+											$(document).ready(function() {
+												var max_fields      = 6; //maximum input boxes allowed
+												var wrapper         = $(".input_fields_wrap3"); //Fields wrapper
+												var add_button      = $(".add_field_button3"); //Add button ID
+												
+												var x = 1; //initlal text box count
+												$(add_button).click(function(e){ //on add input button click
+													e.preventDefault();
+													if(x < max_fields){ //max input box allowed
+														x++; //text box increment
+														$(wrapper).append('<div><p><input type="text" name="mytext[]"/></p><a href="#" class="remove_field">Remove</a></div>'); //add input box
+													}
+												});
+												
+												$(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+													e.preventDefault(); $(this).parent('div').remove(); x--;
+												})
+											});
+											</script>	
+								</div>
+							</div>
+					  </div>	 
+					</div>
+				</div>
+			</table>
+		</div>
+	  
+	  <div id="menu3" class="tab-pane fade">
+		<table id="team1">
+				<div class="row">
+					
+				</div>
+			</table>
+	  </div>
+	</div>
+	<div id="menu4" class="tab-pane fade">
+		<table id="team1">
+				<div class="row">
+					
+				</div>
+			</table>
+	  </div>
+	</div>
+
+</body>
+</html>
