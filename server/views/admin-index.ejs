@@ -1,0 +1,9 @@
+<% layout('./layouts/admin-layout') -%>
+<% block('title', 'RED Wizard Scoring System'); -%>
+
+<% block('ng_app', 'adminIndex') -%>
+<% block('ng_controller', 'mainController') -%>
+<% block('ng_init', 'init()') -%>
+
+<% script('../javascripts/libraries/socket.io.min.js') -%>
+<% script('../javascripts/admin-scoring.js') -%>

@@ -1,13 +1,12 @@
 var app = angular.module('judgeIndex', ['ngRoute']);
+var socket;
 
 app.controller('mainController', ($scope, $http) => {
-		var socket;
-
 		$scope.init = function() {
-			socket = io.connect('http://localhost:3000');
+			socket = io.connect('http://192.168.1.100:3000');
 
 	    	socket.on('connect', function() {
-				socket.emit('judge-connection', 'This is judge client requesting to connect to server');
+				socket.emit('judge-connection');
 			});
 
 			socket.on('disconnect', function(){
@@ -16,7 +15,7 @@ app.controller('mainController', ($scope, $http) => {
 
 			//Judging opened
 			socket.on('judging-opened', function(){
-
+				alert('Judging was just opened');
 			});
 		}
 	});
@@ -25,6 +24,9 @@ app.config(function($routeProvider){
 	$routeProvider
 		.when('/', {
 			templateUrl: '/views/judge-landing.html'
+		})
+		.when('/judging-opened', {
+			templateUrl: '/views/judge-opened.html'
 		})
 		.otherwise({
 			templateUrl: '/views/judge-landing.html'

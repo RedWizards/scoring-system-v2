@@ -19,7 +19,8 @@ module.exports = (io) => {
 				socket_id: socket.id,
 				ip_address: socket.request.connection.remoteAddress
 			});
-			
+
+			console.log(data);
 		});
 
 		//Client is judge
@@ -35,6 +36,7 @@ module.exports = (io) => {
 			});
 
 			if(is_connected){
+				//give this judge's registered id
 				
 			}else{
 
@@ -50,14 +52,15 @@ module.exports = (io) => {
 				});
 			}
 
-			console.log(data);
-			console.log('Judges: ');
-			console.log(judges);
-			console.log('Admin: ');
-			console.log(admins);
+			console.log('Judge Connected, awaiting for confirmation');
 		});
 
-		
+		//Judging is opened by admin
+		socket.on('judging-opened', function(){
+			judges.forEach(function(judge){
+				socket.broadcast.to(judge.socket_id).emit('judging-opened');
+			});
+		});
 	});
 
 	return;
