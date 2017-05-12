@@ -3,14 +3,14 @@ var socket;
 
 app.controller('mainController', ($scope, $http) => {
 		$scope.init = function() {
-			socket = io.connect('http://192.168.1.100:3000');
+			socket = io.connect('http://localhost:3000/admins');
 
 	    	socket.on('connect', function() {
-				socket.emit('admin-connection', 'This is admin requesting to gain access to server');
+				// alert('Connected to Server');	
 			});
 
 			socket.on('disconnect', function(){
-				alert('Server Connection Lost');
+				// alert('Server Connection Lost');
 			});
 
 			//Judge Client request
