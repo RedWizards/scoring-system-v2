@@ -1,0 +1,104 @@
+html, body, #wrapper {
+	height:100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+	
+	background: -webkit-radial-gradient(center, #C91236, #990D29);
+	background: -moz-radial-gradient(center, #C91236, #990D29);
+	background: -o-radial-gradient(center, #C91236, #990D29);
+	background: -ms-radial-gradient(center, #C91236, #990D29);
+	background: radial-gradient(center, #C91236, #990D29);
+	
+	//background: radial-gradient(center, #dc143c, #580818);
+}
+		
+#wrapper td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+header #head-name{
+	color: white;
+	font-size: 2.5em;
+	font-weight: bold;
+	padding: 1em;
+}
+
+#register-section{
+	margin-top: 2em;
+	width: 80%;
+}
+
+#card-box{
+	background-color: white;
+	border-radius: 2px;
+	box-shadow: 0 10px 60px 0 rgba(0, 0, 0, 1), 
+	0 6px 20px 0 rgba(0, 0, 0, 5);			
+}
+
+
+#title-text{
+	font-size: 3em;
+}
+
+#icon{
+	padding: 0.2em;
+	height: 10em;
+}
+
+.inner-addon { 
+    position: relative; 
+}
+
+#input-container{
+	text-transform: uppercase;
+	font-size: 2em;
+	text-align: center;
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 0.7em;
+  pointer-events: none;
+  font-size: 2em;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0em;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+button{
+	margin-top: 1em;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/*Remove Placeholder when focused*/
+input:focus::-webkit-input-placeholder {
+	opacity: 0;
+}

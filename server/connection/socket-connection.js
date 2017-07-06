@@ -26,6 +26,9 @@ module.exports = (io) => {
 			}
 
 			console.log('A Judge Connected: Waiting for the judging to be officially opened.');
+		})
+		.on('judging-request', (data) => {
+			console.log(data);
 		});
 
 	var admin = io.of('/admins')

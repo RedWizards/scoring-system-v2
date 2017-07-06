@@ -1,4 +1,4 @@
-var app = angular.module('judgeIndex', ['ngRoute']);
+var app = angular.module('judgeIndex', ['ngRoute', 'angularCSS']);
 var socket;
 
 app.controller('mainController', ($scope, $window) => {
@@ -21,13 +21,29 @@ app.controller('mainController', ($scope, $window) => {
 	}
 });
 
+app.controller('registrationController', ($scope, $window) => {
+	$scope.judging_request = function(){
+		socket.emit('judging-request', {
+			name: $('#input-container').val()
+		});
+		alert('emitted request');
+	}
+});
+
 app.config(function($routeProvider){
 	$routeProvider
 		.when('/', {
+			css: '/stylesheets/landing.css',
 			templateUrl: '/views/judge-landing.html'
 		})
 		.when('/judging-opened', {
-			templateUrl: '/views/judging-opened.html'
+			css: [
+				'/stylesheets/mdb.min.css',
+				'/stylesheets/font-awesome.min.css',
+				'/stylesheets/judge-registration.css'
+			],
+			templateUrl: '/views/judging-opened.html',
+			controller: 'registrationController'
 		})
 		.otherwise({
 			redirectTo: '/'
