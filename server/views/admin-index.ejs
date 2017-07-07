@@ -1,9 +1,89 @@
-<% layout('./layouts/admin-layout') -%>
-<% block('title', 'RED Wizard Scoring System'); -%>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>RED Wizards Scoring Platform</title>
+		
+		<!--
+		<link rel="icon" href="../../assets/images/uhac.ico" type="image/ico" sizes="32x32">
+		-->
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!-- Bootstrap -->
+		<link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/stylesheets/bootstrap.min.css"> -->
 
-<% block('ng_app', 'adminIndex') -%>
-<% block('ng_controller', 'mainController') -%>
-<% block('ng_init', 'init()') -%>
+		<!-- Jquery -->
+		<script src="/javascripts/jquery.min.js"></script>
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.javascripts"></script> -->
 
-<% script('../javascripts/libraries/socket.io.min.js') -%>
-<% script('../javascripts/admin-scoring.js') -%>
+		<!-- Tether JS -->
+		<!-- <script src="../../assets/javascripts/tether.min.javascripts"></script> -->
+		<!-- <script src="https://cdnjavascripts.cloudflare.com/ajax/libs/tether/1.4.0/javascripts/tether.min.javascripts" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script> -->
+
+		<!-- Bootstrap JS -->
+		<script src="/javascripts/bootstrap.min.js"></script>
+		<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/javascripts/bootstrap.min.javascripts"></script> -->
+
+		<link rel="stylesheet" href="/stylesheets/scoresheet.css">
+
+		<script src="/javascripts/angular.min.js"></script>
+		
+		<script src="/javascripts/angular-animate.js"></script>
+		
+		<script src="/javascripts/angular-route.js"></script>
+		<script src="/javascripts/event-app.js"></script>
+		
+	</head>
+	
+	<body ng-app="eventApp" ng-controller="eventAppCtrl">
+	
+		<div class="container text-center" style="padding-top: 30px; margin: 0; color: white; height: 130px; width: 100%; background-color: #DB3532;">
+			<h4>RED Wizards Scoring System</h4>
+			<p>Name of Event Here</p>
+		</div>
+	
+		
+		<div class="container-fluid">
+			<ul class="nav nav-tabs nav-justified">
+				<li class="active"><a data-toggle="tab" href="#desc-tab">Event Description</a></li>
+				<li><a data-toggle="tab" href="#criteria-tab">Criteria</a></li>
+				<li><a data-toggle="tab" href="#judges-tab">Judges</a></li>
+				<li><a data-toggle="tab" href="#team-tab">Teams</a></li>
+				<li><a data-toggle="tab" href="#scores-tab">Scores</a></li>
+			</ul>
+
+			<div class="tab-content">
+
+				<div id="desc-tab" class="tab-pane fade in active">
+					
+					<h2>Name of Event</h2>
+					<p>Description of event..</p>
+					<p>Date</p>
+					<p>Other details</p>
+
+				</div>
+
+				<div id="criteria-tab" class="tab-pane fade">
+					
+				</div>
+
+				<div id="judges-tab" class="tab-pane fade">
+					JUDGES
+				</div>
+
+				<div id="team-tab" class="tab-pane fade">
+					TEAMS
+				</div>
+				
+				<div id="scores-tab" class="tab-pane fade">
+					SCORES
+				</div>
+				
+			</div>
+		</div>
+
+
+	</body>
+
+</html>

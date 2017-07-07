@@ -4,6 +4,8 @@ module.exports = (io) => {
 	var judge = io.of('/judges')
 		.on('connection', (socket) => {
 
+			console.log(judges);
+
 			var is_connected = false;
 
 			//check if IP address is in the list of connected devices

@@ -3,7 +3,7 @@ var socket;
 
 app.controller('mainController', ($scope, $window) => {
 	$scope.init = function() {
-		socket = io.connect('http://localhost:3000/judges');
+		socket = io.connect('http://192.168.110.100:3000/judges');
 
 	   	socket.on('connect', function() {
 			// alert('Connected to Server');
@@ -26,7 +26,6 @@ app.controller('registrationController', ($scope, $window) => {
 		socket.emit('judging-request', {
 			name: $('#input-container').val()
 		});
-		alert('emitted request');
 	}
 });
 
