@@ -20,7 +20,7 @@ html, body, #wrapper {
     text-align: center;
 }
 
-#center-logo, #p1, #p2 {
+#center-logo, #p1, #p2, #p3, #p4 {
     -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
        -moz-animation: fadein 2s; /* Firefox < 16 */
         -ms-animation: fadein 2s; /* Internet Explorer */
@@ -189,18 +189,32 @@ input {
 	width: 20em;
 	height: 20em;
 	position: absolute;
-	top: 70%;
+	top: 60%;
 	left: 50%;
 	margin-top: -10em;
 	margin-left: -10em;
+}
+
+#p4 {
+	width: 20em;
+	height: 20em;
+	overflow: hidden;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -10em;
+	margin-left: -10em;
+}
+
+#register-button, #input-container {
+	height: 50px;
 }
 
 #register-button {
 	color: #fff;
 	background-color: #0e0058;
 	border:  solid 2px #fff;
-	height: 50px;
-	width:  100px;
+	width:  120px;
 	transition: background-color 0.5s ease;
 }
 
@@ -213,5 +227,11 @@ input {
 }
 
 #input-container {
-	
+	background-color: #fff;
+	border-radius: 0;
+}
+
+#welcome-judge {
+	color: #fff;
+	font-size: 20px;
 }
