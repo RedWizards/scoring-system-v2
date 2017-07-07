@@ -36,11 +36,7 @@ app.config(function($routeProvider){
 			templateUrl: '/views/judge-landing.html'
 		})
 		.when('/judging-opened', {
-			css: [
-				'/stylesheets/mdb.min.css',
-				'/stylesheets/font-awesome.min.css',
-				'/stylesheets/judge-registration.css'
-			],
+			css: '/stylesheets/judge-view.css',
 			templateUrl: '/views/judging-opened.html',
 			controller: 'registrationController'
 		})
