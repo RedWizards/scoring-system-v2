@@ -32,7 +32,7 @@ app.controller('registrationController', ($scope, $window) => {
 app.config(function($routeProvider){
 	$routeProvider
 		.when('/', {
-			css: '/stylesheets/landing.css',
+			css: '/stylesheets/judge-view.css',
 			templateUrl: '/views/judge-landing.html'
 		})
 		.when('/judging-opened', {
